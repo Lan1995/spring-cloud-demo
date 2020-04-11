@@ -1,0 +1,11 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: order
+  cloud:
+    nacos:
+      server-addr: 47.114.134.109:8848
+      discovery:
+        namespace: dev
