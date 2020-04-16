@@ -1,5 +1,5 @@
 server:
-  port: 2001
+  port: ${random.int(10000,19999)}
 
 spring:
   application:
@@ -9,3 +9,4 @@ spring:
       server-addr: 127.0.0.1:8848
       discovery:
         namespace: dev
+        cluster-name: order

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import src.service.OrderService;
 
 import java.util.List;
 
@@ -25,7 +26,10 @@ public class TestController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @NacosValue(value = "${flag:false}",autoRefreshed = true)
+    @Autowired
+    private OrderService orderService;
+
+    @NacosValue(value = "${flag:false}", autoRefreshed = true)
     private boolean flag;
 
     @GetMapping("getEcho")
@@ -42,6 +46,14 @@ public class TestController {
         }
         String url = instance.getUri() + "/echo?name=" + "order";
         String result = restTemplate.getForObject(url, String.class);
+        System.out.println(result);
+        return result;
+    }
+
+    @GetMapping("getFeignEcho")
+    public String getFeignEcho() {
+        String result = orderService.getEcho("Feign");
+        System.out.println(result);
         return result;
     }
 
