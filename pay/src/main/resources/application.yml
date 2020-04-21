@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: pay-application
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.114.134.109:8848
+        namespace: dev
+        cluster-name: pay
+        group: one
+        service: ${spring.application.name}
+server:
+  port: 19999
