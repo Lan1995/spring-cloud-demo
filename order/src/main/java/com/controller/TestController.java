@@ -1,8 +1,7 @@
-package src.controller;
+package com.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -10,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import src.service.OrderService;
+import com.service.OrderService;
 
 import java.util.List;
 
@@ -36,15 +35,15 @@ public class TestController {
     public String getEcho() {
         ServiceInstance instance;
         if (flag) {
-            List<ServiceInstance> order = discoveryClient.getInstances("order");
+            List<ServiceInstance> order = discoveryClient.getInstances("pay-application");
             instance = order.size() > 0 ? order.get(0) : null;
         } else {
-            instance = loadBalancerClient.choose("order");
+            instance = loadBalancerClient.choose("pay-application");
         }
         if (instance == null) {
             throw new NullPointerException("找不到实例");
         }
-        String url = instance.getUri() + "/echo?name=" + "order";
+        String url = instance.getUri() + "/pay/echo?name=" + "order";
         String result = restTemplate.getForObject(url, String.class);
         System.out.println(result);
         return result;

@@ -2,12 +2,13 @@ package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class SpringCloudDemoApplication {
+@EnableDiscoveryClient
+public class PayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudDemoApplication.class, args);
+        SpringApplication.run(PayApplication.class, args);
     }
-
 }

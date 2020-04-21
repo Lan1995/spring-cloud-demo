@@ -1,13 +1,13 @@
-package src.service;
+package com.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient("order")
+@FeignClient("pay-application")
 public interface OrderService {
 
-    @GetMapping("echo")
+    @GetMapping("pay/echo")
     String getEcho(@RequestParam("name") String name);
 }
 

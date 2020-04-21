@@ -1,5 +1,5 @@
 /*
-package src.config;
+package com.config;
 
 import loadbalance.RandomRuleConfig;
 import loadbalance.RoundRuleConfig;
