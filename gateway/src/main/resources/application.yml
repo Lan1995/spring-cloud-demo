@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 47.114.134.109:8848
+        server-addr: 127.0.0.1:8848
         namespace: dev
         cluster-name: gateway
         group: one

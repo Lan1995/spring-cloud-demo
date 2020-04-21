@@ -4,12 +4,12 @@ server:
 spring:
   cloud:
     nacos:
-      server-addr: 47.114.134.109:8848
+      server-addr: 127.0.0.1:8848
       discovery:
         namespace: dev
         cluster-name: order
       config:
-        server-addr: 47.114.134.109:8848 # Nacos 服务器地址
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址
         namespace: dev # 使用的 Nacos 的命名空间，默认为 null
         group: one # 使用的 Nacos 配置分组，默认为 DEFAULT_GROUP
         name: # 使用的 Nacos 配置集的 dataId，默认为 spring.application.name
